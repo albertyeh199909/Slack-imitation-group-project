@@ -13,8 +13,8 @@ class Channel:
         self.members = set([owner])
         self.is_public = is_public
         self.id = get_num_channels()
-        
-        self.message_list = []
+
+        self.message_list = [] 
         get_channels()[self.id] = self
         get_users()[owner].get_channels().add(self.id)
         get_users()[owner].get_owner_channels().add(self.id)
@@ -31,8 +31,10 @@ class Channel:
     
     def get_owners(self):
         return self.owners
+
     def get_members(self):
         return self.members
+
     def get_is_public(self):
         return self.is_public
 
@@ -45,7 +47,6 @@ class Channel:
     def send_message(self, message_obj):
         self.message_list.append(message_obj)
         return message_obj.get_id()
-    
 
     def channel_messages(self, start, user):
         return [mess.to_json(user) for mess in self.message_list[-start-1:-start-51:-1]]
@@ -59,13 +60,8 @@ class Channel:
         
     def join(self, u_id):
         self.members.add(u_id)
-<<<<<<< HEAD
         get_users()[u_id].get_channels().add(self.id) 
 
-=======
-        print(users)
-        users[u_id].get_channels.add(self.id) 
->>>>>>> master
 
     def details(self):
         owner_members = []
