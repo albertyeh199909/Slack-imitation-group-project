@@ -18,8 +18,8 @@ Many problems were encountered with two files requiring information from each ot
 	       constants.py
 	            |
 	         state.py 
-AccessError.py   /       
-    |	    server.py   
+AccessError.py  |      
+    |	      server.py   
 auth_util.py /          \         
     |  export.py   updates.py  
     | /      \      / 
