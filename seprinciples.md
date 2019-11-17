@@ -73,7 +73,7 @@ All errors would have a message describing that error, eg:
 For the most part, we referred to the google style guide, making docstrings for classes and non-trivial functions, but we
 did make some documented changes.
 
-## Naming:
+### Naming:
 Naming of variables followed a strict convention of sticking to the names given in the spec wherever possible. However when we had to come up with names we followed a number of principles:
 
 - Names must have a clear indicator of their type, eg ending the name with id denotes that it is an integer.
@@ -95,7 +95,7 @@ _obj: an object
 new_: a newly created object from a constructor
 set_: a python set
 ```
-## Comments
+### Comments
 
 Comments are added in areas where functionality of code is unclear. This is generally recognised during the refactoring period. Whether or not comments need to be 
 added is decided by whether or not they are any of the following:
@@ -109,14 +109,11 @@ these functions etc. Docstrings follow a strict format of which includes Name, D
 
 
 
-Newlines:
+### Newlines:
 
 - Grouping related elements together, or grouping single units of thought (generally anything that can be described by a one sentence comment)
 
-Controversy:
-
-- When do different principles conflict (eg. consistency/redundant lines)
-
+### Misc
 
 
 
