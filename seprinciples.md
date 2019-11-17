@@ -9,11 +9,11 @@ As you modify your code, maintain a up to a 2 page markdown file that lists the 
 ## File organization
 
 ### Logical separation 
-	We changed from using one single server file containing all functions to separating them into subcategories which were usually determined by the first word in the route name.
+We changed from using one single server file containing all functions to separating them into subcategories which were usually determined by the first word in the route name.
 
 
 ### Data access
-	Many problems were encountered with two files requiring information from each other, leading to coupling and recursive imports. This was solved by constructing a heirachical import structure, an exception being the imports in the main program of server.py that were required to generate the routes.
+Many problems were encountered with two files requiring information from each other, leading to coupling and recursive imports. This was solved by constructing a heirachical import structure, an exception being the imports in the main program of server.py that were required to generate the routes.
 ```
 	       constants.py
 	            |
