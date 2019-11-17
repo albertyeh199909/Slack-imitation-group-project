@@ -4,8 +4,6 @@ Refactor or add to your code from iteration 2 to utilise good software engineeri
 
 As you modify your code, maintain a up to a 2 page markdown file that lists the key changes you've made in your code and why they've been made. 
 
-
-
 ## File organization
 
 ### Logical separation 
@@ -16,11 +14,11 @@ We changed from using one single server file containing all functions to separat
 Many problems were encountered with two files requiring information from each other, leading to coupling and recursive imports. This was solved by constructing a heirachical import structure, an exception being the imports in the main program of server.py that were required to generate the routes.
 ```
 	       constants.py
-	            |
-	         state.py 
-AccessError.py  |      
-    |	      server.py   
-auth_util.py /          \         
+AccessError.py   /
+    |     state.py 
+    |    /       \
+auth_util.py     server.py   
+    |               \         
     |  export.py   updates.py  
     | /      \      / 
   user.py      auth.py
@@ -28,10 +26,10 @@ auth_util.py /          \
   standup.py     |    
   message.py     |
         \       /
-     	  tests
+	      tests
 ```
 Functions that were shared between many files were packaged into their own file, eg. `authcheck()` and `authorise()` in `auth_util`.
-Extra files 
+Extra file layers such as export and updates were implemented to clean up messy imports, in particular these ones would define the imported name depending on whether the server was running under pytest or was properly operational. This system removed many unneccesary wildcard imports. The remaining unused imports are justified as these were from the constants and state modules, which are there to generate a shared environment for all server code.
 
 
 ## Code Redesign
@@ -63,9 +61,9 @@ A list of the types of refactors we did in this respect:
 ### Encapsulation:
 We added getters and stopped using direct access to class fields. Also, for global variables we made python modules for server state and server constants which could be globally accessed via getters and setters.
  
-Errors:
+### Errors:
 
-All errors would have a message describing that error, eg:
+All errors would have a message describing that error with significant debug information, eg:
 `raise ValueError(f"Message {mess.get_id()} '{mess.get_message()[:10]}...' is not pinned.")`
 
 
@@ -83,9 +81,6 @@ Naming of variables followed a strict convention of sticking to the names given 
 - Functions that returned values would also follow this standard.
 - Inner fields in objects start with an underscore as they are all meant to be private fields. 
 
-
-
- 
 We registered the following extra prefixes/suffixes:
 
 ```
@@ -104,14 +99,13 @@ added is decided by whether or not they are any of the following:
 - If there are special cases to usage
 - All errors for function
 
+To ensure that there were a sufficient number of comments, code had to be refactored by someone other than the original author.
+
 Docstrings were also implemented into all functions and classes, and some methods within the class for easier understanding of the functionalities within 
 these functions etc. Docstrings follow a strict format of which includes Name, Description, Arguements, Return Values and Errors Raised.
 
-
-
 ### Newlines:
-
-- Grouping related elements together, or grouping single units of thought (generally anything that can be described by a one sentence comment)
+Newlines were used to grouping related elements together, or grouping single units of thought (generally anything that can be described by a one sentence comment)
 
 ### Pylint
 - Used pylint to check for minor but potentially code-breaking errors
@@ -119,8 +113,8 @@ these functions etc. Docstrings follow a strict format of which includes Name, D
 Tabs instead of spaces, docstrings not required for trivial functions, wildcard imports not allowed except state.py, auth_util.py and constant.py
 
 ### Misc
-
-
+	- Spaces after # for comment.
+	- List comprehensions are used to replace all loops which simply apppend items.
 
 
 
