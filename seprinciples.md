@@ -24,9 +24,15 @@ Naming of variables followed a strict convention of sticking to the names given 
 
 Comments:
 
+Comments are added in areas where functionality of code is unclear. This is generally recognised during the refactoring period. Whether or not comments need to be 
+added is decided by whether or not they are any of the following:
+
 - If not self evident
 - If there are special cases to usage
 - All errors for function
+
+Docstrings were also implemented into all functions and classes, and some methods within the class for easier understanding of the functionalities within 
+these functions etc. Docstrings follow a strict format of which includes Name, Description, Arguements, Return Values and Errors Raised.
 
 Code redesign:
 
@@ -56,7 +62,6 @@ Encapsulation:
 
 - Added getters and stopped using direct access to class field
   raise ValueError(f"Message {mess.get_id()} '{mess.get_message()[:10]}...' is not pinned.")
-- Added underscore prefix in class fields to indicate it as private(convention)
 
 
 Concrete tasks:
