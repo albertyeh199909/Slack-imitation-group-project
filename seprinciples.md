@@ -18,13 +18,50 @@ General:
 - Private class fields (ie most of them) have an underscore before themselves (eg self._id)
 
 
+
+
+## Code Redesign
+
+- Find categories of errors (eg id not found errors etc)
+- Eg raise a value error for an invalid id, when trying to access dict with invalid id
+- Make code more responsible for itself (But often this makes code harder to read, so must come with comments and docstrings)
+- Single Responsibility Principle (Most Value errors moved into objects setters/getters.)
+- File refactoring:
+- Cleans up imports, splits code into logical pieces
+- Files should import in a tree structure primarily
+- Move Value errors to setters/getters to remove repetitive error raising 
+
+### Decorators:
+To be able to both run the server with frontend and test using pytest, we needed to have separate functions that actually did the work, and the functions that interfaced with backend. Using an export decorator we only needed to write the main function, and this would be automatically wrapped to interface with frontend. Types were automatically inferred from variable names.
+We also kept tokens invisible from the main implementation by passing the authorisation to the authorise decorator. Decorators made our funcions very short and simple.
+
+### Code Responsibility
+
+
+### Encapsulation:
+We added getters and stopped using direct access to class fields. Also, for global variables we made python modules for server state and server constants which could be globally accessed via getters and setters.
+ 
+
+Newlines:
+
+- Grouping related elements together, or grouping single units of thought (generally anything that can be described by a one sentence comment)
+
+Errors:
+
+All errors would have a message describing that error, eg:
+`raise ValueError(f"Message {mess.get_id()} '{mess.get_message()[:10]}...' is not pinned.")`
+
+
+## Style guidelines:
+For the most part, we referred to the google style guide, making docstrings for classes and non-trivial functions, but we
+did make some documented changes.
 ## Naming:
 Naming of variables followed a strict convention of sticking to the names given in the spec wherever possible. However when we had to come up with names we followed a number of principles:
 
 - Names must have a clear indicator of their type, eg ending the name with id denotes that it is an integer.
 - Type suffixes and prefixes are to be standardised. We used a discord channel to track new prefixes that we would add to our standard.
 - Functions that returned values would also follow this standard.
-- Inner fields in objects start with an underscore as they are all meant to be private fields.
+- Inner fields in objects start with an underscore as they are all meant to be private fields. 
 
 We registered the following extra prefixes/suffixes:
 
@@ -46,41 +83,6 @@ added is decided by whether or not they are any of the following:
 
 Docstrings were also implemented into all functions and classes, and some methods within the class for easier understanding of the functionalities within 
 these functions etc. Docstrings follow a strict format of which includes Name, Description, Arguements, Return Values and Errors Raised.
-
-## Code Redesign
-
-- Find categories of errors (eg id not found errors etc)
-- Eg raise a value error for an invalid id, when trying to access dict with invalid id
-- Make code more responsible for itself (But often this makes code harder to read, so must come with comments and docstrings)
-- Single Responsibility Principle (Most Value errors moved into objects setters/getters.)
-- File refactoring:
-- Cleans up imports, splits code into logical pieces
-- Files should import in a tree structure primarily
-- Move Value errors to setters/getters to remove repetitive error raising 
-
-### Decorators:
-To be able to both run the server with frontend and test using pytest, we needed to have separate functions that actually did the work, and the functions that interfaced with backend. Using an export decorator we only needed to write the main function, and this would be automatically wrapped to interface with frontend. Types were automatically inferred from variable names.
-We also kept tokens invisible from the main implementation by passing the authorisation to the authorise decorator. Decorators made our funcions very short and simple.
-
-### Code Responsibility
-
-Newlines:
-
-- Grouping related elements together, or grouping single units of thought (generally anything that can be described by a one sentence comment)
-
-Errors:
-
-All errors would have a message describing that error, eg:
-`raise ValueError(f"Message {mess.get_id()} '{mess.get_message()[:10]}...' is not pinned.")`
-
-Encapsulation:
-We added getters and stopped using direct access to class fields. Also, for global variables we made python modules for server state and server constants which could be globally accessed via getters and setters.
- 
-
-
-## Style guidelines:
-For the most part, we referred to the google style guide, making docstrings for classes and non-trivial functions, but we
-did make some documented changes.
 
 
 Controversy:
