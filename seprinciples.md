@@ -19,24 +19,14 @@ General:
 
 
 ## Naming:
-Naming of variables followed a strict convention of sticking to the names given in the spec wherever possible. However when we had to come up with names we followed a number of principles:
-- Names must have a clear indicator of their type, eg ending the name with _id denotes that it is an integer.
-- Type suffixes and prefixes are to be standardised. We used a discord channel to track new prefixes that we would add to our standard.
-- Functions that returned values would also follow this standard.
-- Inner fields in objects start with an underscore as they are all meant to be private fields.
-
-We registered the following extra prefixes/suffixes:
-```
-name and name_: a string
-_str: a string
-_obj: an object
-new_: a newly created object from a constructor
-_set: a python set
-```
+Naming of variables followed a strict convention of sticking to the names given in the spec wherever possible. However when we had to come up with names we followed the protocol:
 
 
+## Comments:
 
-Comments:
+Our team has added in extra comments to functions, classes or methods where we figured that the functionality wasn't as clear. If any of the code meets
+any of the following criterias, a comment would be added for that particular funciton.
+
 - If not self evident
 - If there are special cases to usage
 - All errors for function
@@ -51,21 +41,23 @@ Code redesign:
 - Cleans up imports, splits code into logical pieces
 - Files should import in a tree structure primarily
 
-    Decorators:
-        
-    
-Newlines:
+Decorators:
 
-- Grouping related elements together, or grouping single units of thought (generally anything that can be described by a one sentence comment)
+- For generating repetitive wrappers, reduce function complexity (Export and authorise)
 
-Errors:
+## Newlines:
 
-- Always try to display values in error, eg:
+New lines are added for some lines of code where the functionality of the code wasn't as clear. The code would be broken up into small chuncks
+for better readability. Other lines where it wasn't as unclear, a comment would be added instead.
+
+## Errors:
+
+All Errors now follow a pattern, where the error would always raise a comment describing the type of error that occurred.
 
 ## Encapsulation:
-We added getters and stopped using direct access to class fields. Also, for global variables we made python modules for server state and server constants which could be globally accessed via getters and setters.
-  raise ValueError(f"Message {mess.get_id()} '{mess.get_message()[:10]}...' is not pinned.")
 
+Added getters and stopped using direct access to class field in order to ensure unintentional tampering of the attributes within a class. All attributes will now 
+be accessed through methods within the class. 
 
 Concrete tasks:
 
@@ -81,6 +73,11 @@ Concrete tasks:
 ## Style guidelines:
 For the most part, we referred to the google style guide, making docstrings for classes and non-trivial functions, but we
 did make some documented changes.
+
+
+Controversy:
+
+- When do different principles conflict (eg. consistency/redundant lines)
 
 
 
