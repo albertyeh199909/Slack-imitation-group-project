@@ -1,4 +1,4 @@
-### Demonstrate software engineering design understanding
+# Demonstrate software engineering design understanding
 
 Refactor or add to your code from iteration 2 to utilise good software engineering design to make your code more maintainable. Use a range of principles discussed in lectures.
 
@@ -17,7 +17,7 @@ General:
 - If desired suffix or prefix does not exist, we can make one and document it. (make sure that these “type hints” very obviously give away the type)-
 - Private class fields (ie most of them) have an underscore before themselves (eg self._id)
 
-
+## File organization
 
 
 ## Code Redesign
@@ -55,6 +55,7 @@ All errors would have a message describing that error, eg:
 ## Style guidelines:
 For the most part, we referred to the google style guide, making docstrings for classes and non-trivial functions, but we
 did make some documented changes.
+
 ## Naming:
 Naming of variables followed a strict convention of sticking to the names given in the spec wherever possible. However when we had to come up with names we followed a number of principles:
 
