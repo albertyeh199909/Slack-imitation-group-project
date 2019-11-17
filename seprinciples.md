@@ -22,10 +22,7 @@ General:
 Naming of variables followed a strict convention of sticking to the names given in the spec wherever possible. However when we had to come up with names we followed the protocol:
 
 
-## Comments:
-
-Our team has added in extra comments to functions, classes or methods where we figured that the functionality wasn't as clear. If any of the code meets
-any of the following criterias, a comment would be added for that particular funciton.
+Comments:
 
 - If not self evident
 - If there are special cases to usage
@@ -40,24 +37,26 @@ Code redesign:
 - File refactoring:
 - Cleans up imports, splits code into logical pieces
 - Files should import in a tree structure primarily
+- Move Value errors to setters/getters to remove repetitive error raising 
+
 
 Decorators:
 
 - For generating repetitive wrappers, reduce function complexity (Export and authorise)
 
-## Newlines:
+Newlines:
 
-New lines are added for some lines of code where the functionality of the code wasn't as clear. The code would be broken up into small chuncks
-for better readability. Other lines where it wasn't as unclear, a comment would be added instead.
+- Grouping related elements together, or grouping single units of thought (generally anything that can be described by a one sentence comment)
 
-## Errors:
+Errors:
 
-All Errors now follow a pattern, where the error would always raise a comment describing the type of error that occurred.
+- Always try to display values in error, eg:
 
-## Encapsulation:
+Encapsulation:
 
-Added getters and stopped using direct access to class field in order to ensure unintentional tampering of the attributes within a class. All attributes will now 
-be accessed through methods within the class. 
+- Added getters and stopped using direct access to class field
+  raise ValueError(f"Message {mess.get_id()} '{mess.get_message()[:10]}...' is not pinned.")
+
 
 Concrete tasks:
 
