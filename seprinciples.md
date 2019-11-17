@@ -19,11 +19,11 @@ General:
 
 
 ## Naming:
-Naming of variables followed a strict convention of sticking to the names given in the spec wherever possible. However when we had to come up with names we followed the protocol:
-
+Naming of variables followed a strict convention of sticking to the names given in the spec wherever possible. However when we had to come up with names we followed a number of principles:
+- Names must have a clear indicator of their type, eg ending the name with _id denotes that it is an integer.
+- Type suffixes and prefixes are to be standardised. We used a discord channel to track new prefixes that we would add to our standard.
 
 Comments:
-
 - If not self evident
 - If there are special cases to usage
 - All errors for function
