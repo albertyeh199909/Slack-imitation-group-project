@@ -4,18 +4,7 @@ Refactor or add to your code from iteration 2 to utilise good software engineeri
 
 As you modify your code, maintain a up to a 2 page markdown file that lists the key changes you've made in your code and why they've been made. 
 
-General Styling:
 
-General:
-- Consistency (spacing, order, etc)
-- No redundant lines <^ (WE HAVE REDUNDANCIES)
-- client_id = tokcheck(token) 
-- new_<object name> = create_object()
-- No literal values, use global constants.
-- Function inputs match spec names exactly
-- Variable AND function names reflect data types and usage (eg user_id instead of user.) exactly abide by data type table in specification.
-- If desired suffix or prefix does not exist, we can make one and document it. (make sure that these “type hints” very obviously give away the type)-
-- Private class fields (ie most of them) have an underscore before themselves (eg self._id)
 
 ## File organization
 
@@ -29,7 +18,8 @@ General:
 - File refactoring:
 - Cleans up imports, splits code into logical pieces
 - Files should import in a tree structure primarily
-- Move Value errors to setters/getters to remove repetitive error raising 
+- Move Value errors to setters/getters to remove repetitive error raising(DRY)
+- Using global constants instead of literal value(DRY)
 
 ### Decorators:
 To be able to both run the server with frontend and test using pytest, we needed to have separate functions that actually did the work, and the functions that interfaced with backend. Using an export decorator we only needed to write the main function, and this would be automatically wrapped to interface with frontend. Types were automatically inferred from variable names.
@@ -55,8 +45,8 @@ did make some documented changes.
 Naming of variables followed a strict convention of sticking to the names given in the spec wherever possible. However when we had to come up with names we followed a number of principles:
 
 - Names must have a clear indicator of their type, eg ending the name with id denotes that it is an integer.
-- Names must help clarify the purpose of the variable itself and the function it is in
-- Ex: new_<object name> = create_object()
+- Variable and function names reflect usage and purpose (eg user_id instead of user.) 
+- Function inputs match spec names exactly to avoid confusion
 - Type suffixes and prefixes are to be standardised. We used a discord channel to track new prefixes that we would add to our standard.
 - Functions that returned values would also follow this standard.
 - Inner fields in objects start with an underscore as they are all meant to be private fields. 
