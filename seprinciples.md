@@ -19,9 +19,30 @@ General:
 
 
 ## Naming:
-Naming of variables followed a strict convention of sticking to the names given in the spec wherever possible. However when we had to come up with names we followed the protocol:
+Naming of variables followed a strict convention of sticking to the names given in the spec wherever possible. However when we had to come up with names we followed a number of principles:
+
+- Names must have a clear indicator of their type, eg ending the name with id denotes that it is an integer.
+- Type suffixes and prefixes are to be standardised. We used a discord channel to track new prefixes that we would add to our standard.
+- Functions that returned values would also follow this standard.
+- Inner fields in objects start with an underscore as they are all meant to be private fields.
+
+We registered the following extra prefixes/suffixes:
+
+```
+name and name: a string
+_str: a string
+obj: an object
+new: a newly created object from a constructor
+set: a python set
+```
+name: String
+name: String
+
+_set: Python set
 
 
+## Decorators:
+Decorator n
 Comments:
 
 Comments are added in areas where functionality of code is unclear. This is generally recognised during the refactoring period. Whether or not comments need to be 
@@ -59,8 +80,7 @@ Errors:
 - Always try to display values in error, eg:
 
 Encapsulation:
-
-- Added getters and stopped using direct access to class field
+We added getters and stopped using direct access to class fields. Also, for global variables we made python modules for server state and server constants which could be globally accessed via getters and setters.
   raise ValueError(f"Message {mess.get_id()} '{mess.get_message()[:10]}...' is not pinned.")
 
 
