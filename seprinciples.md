@@ -24,6 +24,7 @@ Naming of variables followed a strict convention of sticking to the names given 
 - Type suffixes and prefixes are to be standardised. We used a discord channel to track new prefixes that we would add to our standard.
 - Functions that returned values would also follow this standard.
 - Inner fields in objects start with an underscore as they are all meant to be private fields.
+
 We registered the following extra prefixes/suffixes:
 ```
 name and name_: a string
@@ -32,6 +33,8 @@ _obj: an object
 new_: a newly created object from a constructor
 _set: a python set
 ```
+
+
 
 Comments:
 - If not self evident
@@ -49,6 +52,7 @@ Code redesign:
 - Files should import in a tree structure primarily
 
     Decorators:
+        
     
 Newlines:
 
@@ -58,9 +62,8 @@ Errors:
 
 - Always try to display values in error, eg:
 
-Encapsulation:
-
-- Added getters and stopped using direct access to class field
+## Encapsulation:
+We added getters and stopped using direct access to class fields. Also, for global variables we made python modules for server state and server constants which could be globally accessed via getters and setters.
   raise ValueError(f"Message {mess.get_id()} '{mess.get_message()[:10]}...' is not pinned.")
 
 
@@ -78,11 +81,6 @@ Concrete tasks:
 ## Style guidelines:
 For the most part, we referred to the google style guide, making docstrings for classes and non-trivial functions, but we
 did make some documented changes.
-
-
-Controversy:
-
-- When do different principles conflict (eg. consistency/redundant lines)
 
 
 
