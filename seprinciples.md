@@ -35,10 +35,7 @@ _obj: an object
 new_: a newly created object from a constructor
 set_: a python set
 ```
-
-## Decorators:
-
-
+## Comments
 
 Comments are added in areas where functionality of code is unclear. This is generally recognised during the refactoring period. Whether or not comments need to be 
 added is decided by whether or not they are any of the following:
@@ -50,7 +47,7 @@ added is decided by whether or not they are any of the following:
 Docstrings were also implemented into all functions and classes, and some methods within the class for easier understanding of the functionalities within 
 these functions etc. Docstrings follow a strict format of which includes Name, Description, Arguements, Return Values and Errors Raised.
 
-Code redesign:
+## Code Redesign
 
 - Find categories of errors (eg id not found errors etc)
 - Eg raise a value error for an invalid id, when trying to access dict with invalid id
@@ -61,10 +58,11 @@ Code redesign:
 - Files should import in a tree structure primarily
 - Move Value errors to setters/getters to remove repetitive error raising 
 
+### Decorators:
+To be able to both run the server with frontend and test using pytest, we needed to have separate functions that actually did the work, and the functions that interfaced with backend. Using an export decorator we only needed to write the main function, and this would be automatically wrapped to interface with frontend. Types were automatically inferred from variable names.
+We also kept tokens invisible from the main implementation by passing the authorisation to the authorise decorator. Decorators made our funcions very short and simple.
 
-Decorators:
-
-- For generating repetitive wrappers, reduce function complexity (Export and authorise)
+### Code Responsibility
 
 Newlines:
 
@@ -72,22 +70,12 @@ Newlines:
 
 Errors:
 
-- Always try to display values in error, eg:
+All errors would have a message describing that error, eg:
+`raise ValueError(f"Message {mess.get_id()} '{mess.get_message()[:10]}...' is not pinned.")`
 
 Encapsulation:
 We added getters and stopped using direct access to class fields. Also, for global variables we made python modules for server state and server constants which could be globally accessed via getters and setters.
-  raise ValueError(f"Message {mess.get_id()} '{mess.get_message()[:10]}...' is not pinned.")
-
-
-Concrete tasks:
-
-- get_channels(), get_users(), etc now take in an id, and output the object with that id, and raises an error if the id does not exist
-
-- def get_channels(channel_id):
-   try:
-       return channels[channel_id]
-   except(KeyError):
-       raise ValueError("message")
+ 
 
 
 ## Style guidelines:
