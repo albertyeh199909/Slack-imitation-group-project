@@ -113,7 +113,7 @@ these functions etc. Docstrings follow a strict format of which includes Name, D
 
 - Grouping related elements together, or grouping single units of thought (generally anything that can be described by a one sentence comment)
 
-###Pylint
+### Pylint
 - Used pylint to check for minor but potentially code-breaking errors
 - Tweaked config file so it checks for the style standards we set including :
 Tabs instead of spaces, docstrings not required for trivial functions, wildcard imports not allowed except state.py, auth_util.py and constant.py
