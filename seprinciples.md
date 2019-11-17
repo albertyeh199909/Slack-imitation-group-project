@@ -8,6 +8,31 @@ As you modify your code, maintain a up to a 2 page markdown file that lists the 
 
 ## File organization
 
+### Logical separation 
+	We changed from using one single server file containing all functions to separating them into subcategories which were usually determined by the first word in the route name.
+
+
+### Data access
+	Many problems were encountered with two files requiring information from each other, leading to coupling and recursive imports. This was solved by constructing a heirachical import structure, an exception being the imports in the main program of server.py that were required to generate the routes.
+```
+	       constants.py
+	            |
+	         state.py 
+AccessError.py   /       
+    |	    server.py   
+auth_util.py /          \         
+    |  export.py   updates.py  
+    | /      \      / 
+  user.py      auth.py
+  channel.py     |
+  standup.py     |    
+  message.py     |
+        \       /
+     	  tests
+```
+Functions that were shared between many files were packaged into their own file, eg. `authcheck()` and `authorise()` in `auth_util`.
+Extra files 
+
 
 ## Code Redesign
 
@@ -27,8 +52,13 @@ As you modify your code, maintain a up to a 2 page markdown file that lists the 
 To be able to both run the server with frontend and test using pytest, we needed to have separate functions that actually did the work, and the functions that interfaced with backend. Using an export decorator we only needed to write the main function, and this would be automatically wrapped to interface with frontend. Types were automatically inferred from variable names.
 We also kept tokens invisible from the main implementation by passing the authorisation to the authorise decorator. Decorators made our funcions very short and simple.
 
-### Code Responsibility
-
+### Code responsibility:
+Our code was designed so that objects and functions would be responsible for themselves. For example, functions do not rely on some external process to sanitise the inputs, and creating a channel would automatically add it to the global list of all channels. This greatly reduced the amount of repeated code (DRY) and made our code far less viscous, having change only a couple of lines to modify existing functionality. The backend functions also became far more readable as the working code was usually only a couple of lines.
+A list of the types of refactors we did in this respect:
+	- Setters will raise relevant errors when the input is invalid, and getters will raise errors when the requested value does not exist.
+	- Objects will add themselves to the relevant global lists.
+	- When a channel is created the owner is added automatically.
+	- Objects will have their own functions which convert them to a dictionary in the correct format, rather than an exernal process handpicking fields.
 
 ### Encapsulation:
 We added getters and stopped using direct access to class fields. Also, for global variables we made python modules for server state and server constants which could be globally accessed via getters and setters.
