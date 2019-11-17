@@ -21,6 +21,7 @@ As you modify your code, maintain a up to a 2 page markdown file that lists the 
 - Added update_messages function to update the state of the server before sending a message. Functionality used to be part of channel_messages function but was broken down. (Top Down)
 - Move Value errors to setters/getters to remove repetitive error raising(DRY)
 - Using global constants instead of literal value(DRY)
+- Replaced complex for loop with getter function to check if object exists already (KISS)
 
 ### Decorators:
 To be able to both run the server with frontend and test using pytest, we needed to have separate functions that actually did the work, and the functions that interfaced with backend. Using an export decorator we only needed to write the main function, and this would be automatically wrapped to interface with frontend. Types were automatically inferred from variable names.
