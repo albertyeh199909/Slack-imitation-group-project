@@ -56,6 +56,7 @@ Encapsulation:
 
 - Added getters and stopped using direct access to class field
   raise ValueError(f"Message {mess.get_id()} '{mess.get_message()[:10]}...' is not pinned.")
+- Added underscore prefix in class fields to indicate it as private(convention)
 
 
 Concrete tasks:
