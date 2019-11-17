@@ -18,6 +18,7 @@ As you modify your code, maintain a up to a 2 page markdown file that lists the 
 - File refactoring:
 - Cleans up imports, splits code into logical pieces
 - Files should import in a tree structure primarily
+- Added update_messages function to update the state of the server before sending a message. Functionality used to be part of channel_messages function but was broken down. (Top Down)
 - Move Value errors to setters/getters to remove repetitive error raising(DRY)
 - Using global constants instead of literal value(DRY)
 
