@@ -62,7 +62,14 @@ Concrete tasks:
    except(KeyError):
        raise ValueError("message")
 
-	
+
+## Style guidelines:
+For the most part, we referred to the google style guide, making docstrings for classes and non-trivial functions, but we
+did make some documented changes.
+
+## Naming:
+Naming of variables followed a strict convention of sticking to the names given in the spec wherever possible. However when we had to come up with names we followed the protocol:
+
 
 Controversy:
 
