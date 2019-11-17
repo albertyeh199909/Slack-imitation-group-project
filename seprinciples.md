@@ -41,11 +41,6 @@ We also kept tokens invisible from the main implementation by passing the author
 ### Encapsulation:
 We added getters and stopped using direct access to class fields. Also, for global variables we made python modules for server state and server constants which could be globally accessed via getters and setters.
  
-
-Newlines:
-
-- Grouping related elements together, or grouping single units of thought (generally anything that can be described by a one sentence comment)
-
 Errors:
 
 All errors would have a message describing that error, eg:
@@ -85,6 +80,11 @@ added is decided by whether or not they are any of the following:
 Docstrings were also implemented into all functions and classes, and some methods within the class for easier understanding of the functionalities within 
 these functions etc. Docstrings follow a strict format of which includes Name, Description, Arguements, Return Values and Errors Raised.
 
+
+
+Newlines:
+
+- Grouping related elements together, or grouping single units of thought (generally anything that can be described by a one sentence comment)
 
 Controversy:
 
