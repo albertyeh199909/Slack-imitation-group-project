@@ -22,6 +22,16 @@ General:
 Naming of variables followed a strict convention of sticking to the names given in the spec wherever possible. However when we had to come up with names we followed a number of principles:
 - Names must have a clear indicator of their type, eg ending the name with _id denotes that it is an integer.
 - Type suffixes and prefixes are to be standardised. We used a discord channel to track new prefixes that we would add to our standard.
+- Functions that returned values would also follow this standard.
+- Inner fields in objects start with an underscore as they are all meant to be private fields.
+We registered the following extra prefixes/suffixes:
+```
+name and name_: a string
+_str: a string
+_obj: an object
+new_: a newly created object from a constructor
+_set: a python set
+```
 
 Comments:
 - If not self evident
@@ -38,10 +48,8 @@ Code redesign:
 - Cleans up imports, splits code into logical pieces
 - Files should import in a tree structure primarily
 
-Decorators:
-
-- For generating repetitive wrappers, reduce function complexity (Export and authorise)
-
+    Decorators:
+    
 Newlines:
 
 - Grouping related elements together, or grouping single units of thought (generally anything that can be described by a one sentence comment)
