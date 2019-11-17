@@ -55,10 +55,15 @@ did make some documented changes.
 Naming of variables followed a strict convention of sticking to the names given in the spec wherever possible. However when we had to come up with names we followed a number of principles:
 
 - Names must have a clear indicator of their type, eg ending the name with id denotes that it is an integer.
+- Names must help clarify the purpose of the variable itself and the function it is in
+- Ex: new_<object name> = create_object()
 - Type suffixes and prefixes are to be standardised. We used a discord channel to track new prefixes that we would add to our standard.
 - Functions that returned values would also follow this standard.
 - Inner fields in objects start with an underscore as they are all meant to be private fields. 
 
+
+
+ 
 We registered the following extra prefixes/suffixes:
 
 ```
