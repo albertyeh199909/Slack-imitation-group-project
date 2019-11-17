@@ -29,21 +29,16 @@ Naming of variables followed a strict convention of sticking to the names given 
 We registered the following extra prefixes/suffixes:
 
 ```
-name and name: a string
+name and name_: a string
 _str: a string
-obj: an object
-new: a newly created object from a constructor
-set: a python set
+_obj: an object
+new_: a newly created object from a constructor
+set_: a python set
 ```
-name: String
-name: String
-
-_set: Python set
-
 
 ## Decorators:
-Decorator n
-Comments:
+
+
 
 Comments are added in areas where functionality of code is unclear. This is generally recognised during the refactoring period. Whether or not comments need to be 
 added is decided by whether or not they are any of the following:
