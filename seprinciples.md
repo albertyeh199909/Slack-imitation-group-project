@@ -9,7 +9,6 @@ General Styling:
 General:
 - Consistency (spacing, order, etc)
 - No redundant lines <^ (WE HAVE REDUNDANCIES)
-- Naming
 - client_id = tokcheck(token) 
 - new_<object name> = create_object()
 - No literal values, use global constants.
@@ -17,6 +16,11 @@ General:
 - Variable AND function names reflect data types and usage (eg user_id instead of user.) exactly abide by data type table in specification.
 - If desired suffix or prefix does not exist, we can make one and document it. (make sure that these “type hints” very obviously give away the type)-
 - Private class fields (ie most of them) have an underscore before themselves (eg self._id)
+
+
+## Naming:
+Naming of variables followed a strict convention of sticking to the names given in the spec wherever possible. However when we had to come up with names we followed the protocol:
+
 
 Comments:
 
@@ -66,9 +70,6 @@ Concrete tasks:
 ## Style guidelines:
 For the most part, we referred to the google style guide, making docstrings for classes and non-trivial functions, but we
 did make some documented changes.
-
-## Naming:
-Naming of variables followed a strict convention of sticking to the names given in the spec wherever possible. However when we had to come up with names we followed the protocol:
 
 
 Controversy:
